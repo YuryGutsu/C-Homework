@@ -19,14 +19,14 @@ namespace PointTask
             CoordY = coordY;
         }
 
-        public void ShowCoordinates()
+        public string ShowCoordinates()
         {
-            Console.WriteLine($"{Name} {CoordX},{CoordY}");    
+            return $"{Name} {CoordX},{CoordY}";    
         }
      
-        public void ShowDistance(Point point)
+        public string ShowDistance(Point point)
         {
-            Console.WriteLine($"{this.Name} - {point.Name} = {this.CalculateDistance(point)}");
+           return $"{this.Name} - {point.Name} = {this.CalculateDistance(point)}";
         }
 
         private double CalculateDistance(Point point)

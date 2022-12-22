@@ -21,11 +21,11 @@ internal class Program
 
             foreach (Point point in points)
             {
-                point.ShowCoordinates();
+                Console.WriteLine(point.ShowCoordinates());
             }
 
-            point5.ShowDistance(point6);
-            point9.ShowDistance(point10);
+            Console.WriteLine(point5.ShowDistance(point6));
+            Console.WriteLine(point9.ShowDistance(point10));
         }
 
 }

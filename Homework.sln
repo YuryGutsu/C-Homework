@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework.csproj", "{F3D16BD9-F2D5-40C4-9409-963B54A67CBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework", "Homework.csproj", "{F3D16BD9-F2D5-40C4-9409-963B54A67CBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PupilsScore", "PupilsScore\PupilsScore.csproj", "{C412062A-4CA3-47A5-9E81-00C06FADF3B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PupilsScore", "PupilsScore\PupilsScore.csproj", "{C412062A-4CA3-47A5-9E81-00C06FADF3B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Point", "Point\Point.csproj", "{3D75AD8E-0934-49B2-B454-E84808611114}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C412062A-4CA3-47A5-9E81-00C06FADF3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C412062A-4CA3-47A5-9E81-00C06FADF3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C412062A-4CA3-47A5-9E81-00C06FADF3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D75AD8E-0934-49B2-B454-E84808611114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D75AD8E-0934-49B2-B454-E84808611114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D75AD8E-0934-49B2-B454-E84808611114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D75AD8E-0934-49B2-B454-E84808611114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

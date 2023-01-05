@@ -72,7 +72,7 @@ namespace ArraysNew
                         return subjectScore.Score;                                
                     }                
                 }
-                return -1;
+                return -1; //while instead of exception 
             }
 
              Console.WriteLine(GetMaxScore(candidates, "Physics"));

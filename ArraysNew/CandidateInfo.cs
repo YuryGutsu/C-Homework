@@ -8,13 +8,13 @@ namespace ArraysNew
 {
     internal class CandidateInfo
     {
-        public Person Person { get; }
-        public SubjectScore[] subjectScores { get; }
+        public Person Person { get; set; }
+        public SubjectScore[] subjectScores { get; set; }
 
         public CandidateInfo(Person person, SubjectScore[] scores)
         {
-            this.Person = person;
-            this.subjectScores = scores;       
+            Person = person;
+            subjectScores = scores;       
         }
     }
 }

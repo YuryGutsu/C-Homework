@@ -8,15 +8,15 @@ namespace ArraysNew
 {
     internal class Person
     {
-        public string FirstName { get; }
-        public string LastName { get; }
-        public Address Address { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Address Address { get; set; }
 
         public Person(string firstName, string lastName, Address address)
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Address = address;
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
         }
     }
 }

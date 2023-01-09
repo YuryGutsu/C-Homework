@@ -1,54 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace ArraysNew
+namespace ArraysNew;
+
+internal class Address
 {
-    internal class Address
+    private const int max_house_number = 1000;
+    private const int max_flat_number = 10000;
+    private int _numberOfHouse;
+    private int _numberOfFlat;
+    public string City { get; set; }
+    public string Street { get; set; }
+    public int NumberOfHouse
     {
-        private const int max_house_number = 1000;
-        private const int max_flat_number = 10000;
-        private int _numberOfHouse;
-        private int _numberOfFlat;
-        public string City { get; set; }
-        public string Street { get; set; }
-        public int NumberOfHouse
+        get
         {
-            get
-            {
-                return _numberOfHouse;
-            }
-            set
-            { 
-                if (value > 0 && value < max_house_number)
+            return _numberOfHouse;
+        }
+        set
+        { 
+            if (value > 0 && value < max_house_number)
             {
                 _numberOfHouse = value;
             }
-            }
         }
-        public int NumberOfFlat
+    }
+    public int NumberOfFlat
+    {
+        get
         {
-            get
+            return _numberOfFlat;
+        }
+        set
+        {
+            if (value > 0 && value < max_flat_number)
             {
-                return _numberOfFlat;
-            }
-            set
-            {
-                if (value > 0 && value < max_flat_number)
-                {
-                    _numberOfFlat= value;
-                }
+                _numberOfFlat= value;
             }
         }
+    }
 
-        public Address(string city, string street, int numberOfHouse, int numberOfFlat)
-        {
-            this.City = city;
-            this.Street = street;
-            this.NumberOfHouse = numberOfHouse;
-            this.NumberOfFlat = numberOfFlat;
-        }
+    public Address(string city, string street, int numberOfHouse, int numberOfFlat)
+    {
+        City = city;
+        Street = street;
+        NumberOfHouse = numberOfHouse;
+        NumberOfFlat = numberOfFlat;
     }
 }

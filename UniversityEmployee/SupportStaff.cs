@@ -6,13 +6,13 @@ internal class SupportStaff : UniversityEmployee
 {
     public string StaffDuty { get; set; }
 
-    public SupportStaff(string person, string taxID, string staffDuty) : base (person, taxID)
+    public SupportStaff(Person person, string taxID, string staffDuty) : base (person, taxID)
     {
         StaffDuty = staffDuty;
     }
 
     public override string GetOfficialDuties()
     {
-        return base.GetOfficialDuties() + " " + StaffDuty;
+        return $"{base.GetOfficialDuties()} {StaffDuty}";
     }
 }

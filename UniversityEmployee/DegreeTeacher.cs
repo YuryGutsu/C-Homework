@@ -7,7 +7,7 @@ internal class DegreeTeacher:Teacher
     public string ScienceDegree { get; set; }
     public string Rank { get; set; }
 
-    public DegreeTeacher ( string person, string taxID, Course course, string scienceDegree, string rank) :
+    public DegreeTeacher ( Person person, string taxID, Course course, string scienceDegree, string rank) :
                     base (person, taxID, course)
     {
         ScienceDegree = scienceDegree;
@@ -15,6 +15,6 @@ internal class DegreeTeacher:Teacher
     }
     public override string GetOfficialDuties()
     {
-        return base.GetOfficialDuties() + ScienceDegree + " " + Rank;
+        return $"{base.GetOfficialDuties()} {ScienceDegree} {Rank}";
     }
 }

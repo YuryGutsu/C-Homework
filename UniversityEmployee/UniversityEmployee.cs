@@ -4,10 +4,10 @@ namespace UniversityEmployee;
 
 internal class UniversityEmployee
 {
-    public string Person { get; set; }
+    public Person Person { get; set; }
     public string TaxID { get; set; }
 
-    public UniversityEmployee (string person, string taxID)
+    public UniversityEmployee (Person person, string taxID)
     {
         Person = person;
         TaxID = taxID;
@@ -15,7 +15,7 @@ internal class UniversityEmployee
 
     public virtual string GetOfficialDuties()
     {
-        return "I'm " + Person + " " + "ID#" + TaxID;
+        return $"I'm {Person} ID# {TaxID}";
     }
 
 }

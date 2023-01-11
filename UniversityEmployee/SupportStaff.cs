@@ -6,7 +6,7 @@ internal class SupportStaff : UniversityEmployee
 {
     public string StaffDuty { get; set; }
 
-    public SupportStaff(Person person, string taxID, string staffDuty) : base (person, taxID)
+    public SupportStaff(Person person, string taxId, string staffDuty) : base (person, taxId)
     {
         StaffDuty = staffDuty;
     }

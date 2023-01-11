@@ -2,13 +2,13 @@
 
 namespace UniversityEmployee;
 
-internal class DegreeTeacher:Teacher
+internal class TeacherWithDegree:Teacher
 {
     public string ScienceDegree { get; set; }
     public string Rank { get; set; }
 
-    public DegreeTeacher ( Person person, string taxID, Course course, string scienceDegree, string rank) :
-                    base (person, taxID, course)
+    public TeacherWithDegree ( Person person, string taxId, Course course, string scienceDegree, string rank) :
+                        base (person, taxId, course)
     {
         ScienceDegree = scienceDegree;
         Rank = rank;

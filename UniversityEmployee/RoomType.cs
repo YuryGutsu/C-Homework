@@ -4,5 +4,5 @@ namespace UniversityEmployee;
 
 internal enum RoomType
 {
-    LectionType, LaboratoryType, SeminarType, AuxiliaryType
+    LectionRoom, LaboratoryRoom, SeminarRoom, AuxiliaryRoom
 }

@@ -17,5 +17,4 @@ abstract class UniversityEmployee
     {
         return $"I'm {Person} ID# {TaxId}";
     }
-
 }

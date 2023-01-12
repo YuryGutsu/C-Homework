@@ -4,15 +4,14 @@ namespace UniversityEmployee;
 
 internal class University
 {
-    public List<University> UniversityEmployees;
+    public List<UniversityEmployee> Employees;
     public List<Building> Buildings;
-    public UniversityEmployee Rector;
+    public Rector Rector;
 
-    public University(List<University> employees, List<Building> buildings, UniversityEmployee rector)
+    public University(List<UniversityEmployee> employees, List<Building> buildings, Rector rector)
     {
-        UniversityEmployees = employees;
+        Employees = employees;
         Buildings = buildings;
         Rector = rector;
     }
-
 }

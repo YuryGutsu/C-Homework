@@ -2,9 +2,9 @@
 
 namespace UniversityEmployee;
 
-internal class Address
+public class Address
 {
-    private const int max_builging_number = 1000;
+    private const int _max_builging_number = 1000;
     
     private int _numberOfBuilding;
     public string City { get; set; }
@@ -17,7 +17,7 @@ internal class Address
         }
         set
         { 
-            if (value > 0 && value < max_builging_number)
+            if (value > 0 && value < _max_builging_number)
             {
                 _numberOfBuilding = value;
             }
@@ -29,5 +29,20 @@ internal class Address
         City = city;
         Street = street;
         NumberOfBuilding = numberOfBuilding;
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj is not Address address)
+        {
+            return false;
+        }
+
+        return address.NumberOfBuilding.Equals(NumberOfBuilding)
+            && address.Street.Equals(Street)
+            && address.City.Equals(City);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

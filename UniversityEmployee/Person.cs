@@ -1,8 +1,7 @@
 ﻿
-
 namespace UniversityEmployee;
 
-internal class Person
+public class Person
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -16,5 +15,19 @@ internal class Person
     public override string ToString()
     {
         return $"{FirstName} {LastName}";
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj is not Person person)
+        {
+            return false;
+        }
+
+        return person.FirstName.Equals(FirstName)
+            && person.LastName.Equals(LastName);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

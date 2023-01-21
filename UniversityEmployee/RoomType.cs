@@ -2,7 +2,7 @@
 
 namespace UniversityEmployee;
 
-internal enum RoomType
+public enum RoomType
 {
     LectionRoom, LaboratoryRoom, SeminarRoom, AuxiliaryRoom
 }

@@ -1,8 +1,6 @@
-﻿
+﻿namespace UniversityEmployee;
 
-namespace UniversityEmployee;
-
-internal class Room
+public class Room
 {
     private int _numberOfRoom;
     public RoomType TypeOfRoom { get; set; }
@@ -24,5 +22,19 @@ internal class Room
     {
         TypeOfRoom = typeOfRoom;
         NumberOfRoom = numberOfRoom;
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj is not Room room)
+        {
+            return false;
+        }
+
+        return room.TypeOfRoom.Equals(TypeOfRoom)
+            && room.NumberOfRoom.Equals(NumberOfRoom);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

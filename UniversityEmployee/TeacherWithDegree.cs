@@ -2,7 +2,7 @@
 
 namespace UniversityEmployee;
 
-internal class TeacherWithDegree:Teacher
+public class TeacherWithDegree:Teacher
 {
     public string ScienceDegree { get; set; }
     public string Rank { get; set; }
@@ -16,5 +16,19 @@ internal class TeacherWithDegree:Teacher
     public override string GetOfficialDuties()
     {
         return $"{base.GetOfficialDuties()} {ScienceDegree} {Rank}";
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj is not TeacherWithDegree teacherWithDegree)
+        {
+            return false;
+        }
+
+        return base.Equals(obj) && teacherWithDegree.Rank.Equals(Rank)
+            && teacherWithDegree.ScienceDegree.Equals(ScienceDegree);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

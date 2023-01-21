@@ -2,7 +2,7 @@
 
 namespace UniversityEmployee;
 
-internal class Rector : UniversityEmployee
+public class Rector : UniversityEmployee
 { 
     public string RectorOfWhat { get; set; }
     
@@ -13,6 +13,19 @@ internal class Rector : UniversityEmployee
     public override string GetOfficialDuties()
     {
         return $"{base.GetOfficialDuties()} rector of {RectorOfWhat}";
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || obj is not Rector rector)
+        {
+            return false;
+        }
+
+        return base.Equals(obj) && rector.RectorOfWhat.Equals(RectorOfWhat);
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 
 }

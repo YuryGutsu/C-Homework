@@ -1,6 +1,4 @@
-﻿
-
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class SupportStaff : UniversityEmployee
 {

@@ -1,6 +1,4 @@
-﻿
-
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class Address
 {
@@ -29,6 +27,10 @@ public class Address
         City = city;
         Street = street;
         NumberOfBuilding = numberOfBuilding;
+    }
+    public override string ToString()
+    {
+        return $"{City} {Street} {NumberOfBuilding}";
     }
     public override bool Equals(object obj)
     {

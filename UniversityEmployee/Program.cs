@@ -17,8 +17,8 @@ public class Program
       
         var employees = new List<UniversityEmployee>() { employee1, employee2, employee3,employee4,
                                                          employee5, employee6, employee7, employee8, employeeRector };
-        var Building1 = new Building(new List<Room>() {new Room(RoomType.LectionRoom, 1),
-                                                          new Room(RoomType.LaboratoryRoom, 2),
+        var building1 = new Building(new List<Room>() {new Room(RoomType.LectionRoom, 1),
+                                                          new Room(RoomType.LaboratoryRoom, 22),
                                                           new Room(RoomType.SeminarRoom, 3),
                                                           new Room(RoomType.AuxiliaryRoom, 4)},
                                                           new Address("Minsk", "ul. Brovki", 1));
@@ -31,7 +31,7 @@ public class Program
                                                           new Room(RoomType.AuxiliaryRoom, 34)},
                                                           new Address("Minsk", "ul. Brovki", 3));
 
-        var buildings = new List<Building>() { Building1, building2, building3 };
+        var buildings = new List<Building>() { building1, building2, building3 };
 
         var universityBguir = new University(employees, buildings, employeeRector);
         
@@ -40,7 +40,8 @@ public class Program
         Console.WriteLine();
 
         var filterEmployee1 = universityBguir.Employees.Where(x => x.Person.LastName.StartsWith('B'))
-                                                      .OrderBy(x => x.TaxId).ToList();
+                                                       .OrderBy(x => x.TaxId)
+                                                       .ToList();
 
         foreach (var item in filterEmployee1)
         {
@@ -50,7 +51,8 @@ public class Program
         Console.WriteLine();
 
         var filterEmployee2 = universityBguir.Employees
-            .Where(x => (x is Teacher teacher) && teacher.Course.CourseName.Equals("Math")).ToList();
+            .Where(x => (x is Teacher teacher) && teacher.Course.CourseName.Equals("Math"))
+            .ToList();
 
         foreach (var item in filterEmployee2)
         {
@@ -61,7 +63,8 @@ public class Program
 
         var filterEmployee3 = universityBguir.Employees
             .Where(x => (x is SupportStaff))
-            .Select(supportstaff => (supportstaff.TaxId, ((SupportStaff) supportstaff).StaffDuty)).ToList();
+            .Select(supportstaff => (supportstaff.TaxId, ((SupportStaff) supportstaff).StaffDuty))
+            .ToList();
 
         foreach (var item in filterEmployee3)
         {
@@ -69,6 +72,29 @@ public class Program
         }
 
         Console.WriteLine();
+
+        var filterBuilding1 = universityBguir.Buildings
+            .Where(x => x.Rooms.Any(room => room.NumberOfRoom.Equals(22)))
+            .Select(x => x.Address)
+            .ToList();
+
+        foreach (var item in filterBuilding1)
+        {
+            Console.WriteLine(item);
+        }
+        /*var filterBuilding2 = 
+            //.Where(x => x.Rooms.Count().Equals(universityBguir.Buildings.Rooms.Max(x => x.Rooms)))
+            (from x in universityBguir.Buildings
+             orderby x.Rooms
+             select x)
+            .ToList();
+
+        foreach (var item in filterBuilding2)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine();*/
 
         foreach (var employee in employees)
         {

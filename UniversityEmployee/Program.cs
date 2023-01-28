@@ -14,7 +14,7 @@ public class Program
         var employee7 = new SupportStaff(new Person("Serge", "McNill"), "GG2222", "Janitor");
         var employee8 = new SupportStaff(new Person("Ben", "Brown"), "GG3333", "Gardener");
         var employeeRector = new Rector(new Person("Taras", "Bulba"), "RR1111", "BGUIR");
-      
+
         var employees = new List<UniversityEmployee>() { employee1, employee2, employee3,employee4,
                                                          employee5, employee6, employee7, employee8, employeeRector };
         var building1 = new Building(new List<Room>() {new Room(RoomType.LectionRoom, 1),
@@ -34,7 +34,7 @@ public class Program
         var buildings = new List<Building>() { building1, building2, building3 };
 
         var universityBguir = new University(employees, buildings, employeeRector);
-        
+
         Console.WriteLine(universityBguir.AddEmployee(new Teacher(new Person("Dylan", "Bob"), "AB2229", new Course("Math", "Algebra"))));
         Console.WriteLine(universityBguir.AddEmployee(employee5));
         Console.WriteLine();
@@ -62,8 +62,8 @@ public class Program
         Console.WriteLine();
 
         var filterEmployee3 = universityBguir.Employees
-            .Where(x => (x is SupportStaff))
-            .Select(supportstaff => (supportstaff.TaxId, ((SupportStaff) supportstaff).StaffDuty))
+            .Where(x => x is SupportStaff)
+            .Select(supportstaff => (supportstaff.TaxId, ((SupportStaff)supportstaff).StaffDuty))
             .ToList();
 
         foreach (var item in filterEmployee3)
@@ -74,7 +74,7 @@ public class Program
         Console.WriteLine();
 
         var filterBuilding1 = universityBguir.Buildings
-            .Where(x => x.Rooms.Any(room => room.NumberOfRoom.Equals(22)))
+            .Where(x => x.Rooms.Any(room => room.NumberOfRoom == 22))
             .Select(x => x.Address)
             .ToList();
 
@@ -82,20 +82,26 @@ public class Program
         {
             Console.WriteLine(item);
         }
-        /*var filterBuilding2 = 
-            //.Where(x => x.Rooms.Count().Equals(universityBguir.Buildings.Rooms.Max(x => x.Rooms)))
-            (from x in universityBguir.Buildings
-             orderby x.Rooms
-             select x)
-            .ToList();
 
-        foreach (var item in filterBuilding2)
-        {
-            Console.WriteLine(item);
-        }
+        Console.WriteLine();
 
-        Console.WriteLine();*/
+        var filterBuilding2 = universityBguir.Buildings
+            .OrderByDescending(x => x.Rooms.Count())
+            .First();
 
+        Console.WriteLine(filterBuilding2.Address);
+
+        Console.WriteLine();
+
+        var filterEmployee4 = universityBguir.Employees
+            .GroupBy(x => x.Person.LastName)
+            .Select(x => (x.Key, x.Count()))
+            .OrderByDescending(d => d.Item2)
+            .First();
+
+        Console.WriteLine($"{filterEmployee4.Key} {filterEmployee4.Item2}");
+
+        Console.WriteLine();
         foreach (var employee in employees)
         {
             Console.WriteLine(employee.GetOfficialDuties());

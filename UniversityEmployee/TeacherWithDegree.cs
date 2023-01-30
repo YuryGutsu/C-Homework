@@ -1,8 +1,6 @@
-﻿
+﻿namespace UniversityEmployee;
 
-namespace UniversityEmployee;
-
-public class TeacherWithDegree:Teacher
+public class TeacherWithDegree : Teacher
 {
     public string ScienceDegree { get; set; }
     public string Rank { get; set; }
@@ -29,6 +27,6 @@ public class TeacherWithDegree:Teacher
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return Rank.GetHashCode() + ScienceDegree.GetHashCode();
     }
 }

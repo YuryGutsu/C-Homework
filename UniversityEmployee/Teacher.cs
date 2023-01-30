@@ -1,6 +1,4 @@
-﻿
-
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class Teacher: UniversityEmployee
 {
@@ -25,6 +23,6 @@ public class Teacher: UniversityEmployee
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return Course.GetHashCode();
     }
 }

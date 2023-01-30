@@ -20,6 +20,6 @@ public class Course
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return CourseName.GetHashCode();
     }
 }

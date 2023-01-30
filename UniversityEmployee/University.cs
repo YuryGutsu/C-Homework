@@ -1,12 +1,9 @@
-﻿
-
-namespace UniversityEmployee;
-
+﻿namespace UniversityEmployee;
 public class University
 {
-    public List<UniversityEmployee> Employees;
-    public List<Building> Buildings;
-    public Rector Rector;
+    public List<UniversityEmployee> Employees { get; set; }
+    public List<Building> Buildings { get; set; }
+    public Rector Rector { get; set; }
 
     public University(List<UniversityEmployee> employees, List<Building> buildings, Rector rector)
     {

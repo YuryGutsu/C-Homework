@@ -35,6 +35,6 @@ public class Room
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return NumberOfRoom.GetHashCode();
     }
 }

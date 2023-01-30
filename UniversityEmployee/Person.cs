@@ -28,6 +28,6 @@ public class Person
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return FirstName.GetHashCode() + LastName.GetHashCode();
     }
 }

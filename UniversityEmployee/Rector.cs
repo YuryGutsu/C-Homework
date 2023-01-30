@@ -1,6 +1,4 @@
-﻿
-
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class Rector : UniversityEmployee
 { 
@@ -25,7 +23,7 @@ public class Rector : UniversityEmployee
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return RectorOfWhat.GetHashCode();
     }
 
 }

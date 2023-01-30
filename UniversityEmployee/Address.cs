@@ -45,6 +45,6 @@ public class Address
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return NumberOfBuilding + Street.GetHashCode() + City.GetHashCode();
     }
 }

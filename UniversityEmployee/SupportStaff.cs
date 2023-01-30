@@ -24,6 +24,6 @@ public class SupportStaff : UniversityEmployee
     }
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return StaffDuty.GetHashCode();
     }
 }

@@ -28,6 +28,6 @@ public abstract class UniversityEmployee
 
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        return TaxId.GetHashCode() + Person.GetHashCode();
     }
 }

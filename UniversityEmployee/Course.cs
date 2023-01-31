@@ -1,8 +1,6 @@
-﻿
+﻿namespace UniversityEmployee;
 
-namespace UniversityEmployee;
-
-internal class Course
+public class Course
 {
     public string CourseName { get; set; }
     public string CourseDescribtion { get; set; }
@@ -10,5 +8,20 @@ internal class Course
     {
         CourseName = courseName;
         CourseDescribtion = courseDescribtion;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj == null || obj is not Course course)
+        {
+            return false;
+        }
+
+        return course.CourseName.Equals(CourseName);
+    }
+
+    public override int GetHashCode()
+    {
+        return CourseName.GetHashCode();
     }
 }

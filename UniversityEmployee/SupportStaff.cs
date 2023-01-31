@@ -1,12 +1,10 @@
-﻿
+﻿namespace UniversityEmployee;
 
-namespace UniversityEmployee;
-
-internal class SupportStaff : UniversityEmployee
+public class SupportStaff : UniversityEmployee
 {
     public string StaffDuty { get; set; }
 
-    public SupportStaff(Person person, string taxID, string staffDuty) : base (person, taxID)
+    public SupportStaff(Person person, string taxId, string staffDuty) : base (person, taxId)
     {
         StaffDuty = staffDuty;
     }
@@ -14,5 +12,20 @@ internal class SupportStaff : UniversityEmployee
     public override string GetOfficialDuties()
     {
         return $"{base.GetOfficialDuties()} {StaffDuty}";
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj == null || obj is not SupportStaff supportStaff)
+        {
+            return false;
+        }
+
+        return base.Equals(obj) && supportStaff.StaffDuty.Equals(StaffDuty);
+    }
+
+    public override int GetHashCode()
+    {
+        return StaffDuty.GetHashCode();
     }
 }

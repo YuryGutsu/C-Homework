@@ -8,11 +8,13 @@ public class Rector : UniversityEmployee
     {
     RectorOfWhat = rectorOfWhat;
     }
+
     public override string GetOfficialDuties()
     {
         return $"{base.GetOfficialDuties()} rector of {RectorOfWhat}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Rector rector)
         {
@@ -21,6 +23,7 @@ public class Rector : UniversityEmployee
 
         return base.Equals(obj) && rector.RectorOfWhat.Equals(RectorOfWhat);
     }
+
     public override int GetHashCode()
     {
         return RectorOfWhat.GetHashCode();

@@ -13,7 +13,8 @@ public class SupportStaff : UniversityEmployee
     {
         return $"{base.GetOfficialDuties()} {StaffDuty}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not SupportStaff supportStaff)
         {
@@ -22,6 +23,7 @@ public class SupportStaff : UniversityEmployee
 
         return base.Equals(obj) && supportStaff.StaffDuty.Equals(StaffDuty);
     }
+
     public override int GetHashCode()
     {
         return StaffDuty.GetHashCode();

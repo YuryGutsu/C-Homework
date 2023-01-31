@@ -11,14 +11,12 @@ public class University
         Buildings = buildings;
         Rector = rector;
     }
-    public bool AddEmployee (UniversityEmployee employee)
+
+    public bool AddEmployee(UniversityEmployee employee)
     {
-        foreach (var item in Employees)
+        if (Employees.Contains(employee))
         {
-            if (item.Equals(employee))
-            {
-                return false;
-            }
+            return false;
         }
         Employees.Add(employee);
         return true;

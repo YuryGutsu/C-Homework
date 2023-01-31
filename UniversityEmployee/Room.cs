@@ -18,12 +18,14 @@ public class Room
             }
         }
     }
+
     public Room(RoomType typeOfRoom, int numberOfRoom)
     {
         TypeOfRoom = typeOfRoom;
         NumberOfRoom = numberOfRoom;
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Room room)
         {
@@ -33,6 +35,7 @@ public class Room
         return room.TypeOfRoom.Equals(TypeOfRoom)
             && room.NumberOfRoom.Equals(NumberOfRoom);
     }
+
     public override int GetHashCode()
     {
         return NumberOfRoom.GetHashCode();

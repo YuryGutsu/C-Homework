@@ -2,5 +2,8 @@
 
 public enum RoomType
 {
-    LectionRoom, LaboratoryRoom, SeminarRoom, AuxiliaryRoom
+    LectionRoom,
+    LaboratoryRoom,
+    SeminarRoom,
+    AuxiliaryRoom
 }

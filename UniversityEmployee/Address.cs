@@ -28,11 +28,13 @@ public class Address
         Street = street;
         NumberOfBuilding = numberOfBuilding;
     }
+
     public override string ToString()
     {
         return $"{City} {Street} {NumberOfBuilding}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Address address)
         {
@@ -43,6 +45,7 @@ public class Address
             && address.Street.Equals(Street)
             && address.City.Equals(City);
     }
+
     public override int GetHashCode()
     {
         return NumberOfBuilding + Street.GetHashCode() + City.GetHashCode();

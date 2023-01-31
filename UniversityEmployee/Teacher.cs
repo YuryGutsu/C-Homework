@@ -12,15 +12,16 @@ public class Teacher: UniversityEmployee
     {
         return $"{base.GetOfficialDuties()} teacher of {Course.CourseName} {Course.CourseDescribtion}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Teacher teacher)
         {
             return false;
         }
-
         return base.Equals(obj) && teacher.Course.Equals(Course);
     }
+
     public override int GetHashCode()
     {
         return Course.GetHashCode();

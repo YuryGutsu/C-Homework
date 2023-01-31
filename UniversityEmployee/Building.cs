@@ -12,7 +12,8 @@ public class Building
         Rooms = rooms;
         Address = address;
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Building building)
         {
@@ -29,6 +30,7 @@ public class Building
         }
         return result;
     }
+
     public override int GetHashCode()
     {
         return Rooms.GetHashCode() + Address.GetHashCode();

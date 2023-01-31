@@ -10,22 +10,33 @@ public class Person
     {
         FirstName = firstName;
         LastName = lastName;
+
+        if(FullNameLength() > 15)
+        {
+            throw new ArgumentException("FirstName and LastName length exceeding");
+        }
+    }
+
+    public int FullNameLength()
+    {
+        return FirstName.Length + LastName.Length;
     }
     
     public override string ToString()
     {
         return $"{FirstName} {LastName}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Person person)
         {
             return false;
         }
-
         return person.FirstName.Equals(FirstName)
             && person.LastName.Equals(LastName);
     }
+
     public override int GetHashCode()
     {
         return FirstName.GetHashCode() + LastName.GetHashCode();

@@ -9,7 +9,8 @@ public class Course
         CourseName = courseName;
         CourseDescribtion = courseDescribtion;
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not Course course)
         {
@@ -18,6 +19,7 @@ public class Course
 
         return course.CourseName.Equals(CourseName);
     }
+
     public override int GetHashCode()
     {
         return CourseName.GetHashCode();

@@ -1,13 +1,28 @@
 ﻿namespace UniversityEmployee;
 
-public abstract class UniversityEmployee
+public abstract class UniversityEmployee : IComparable<UniversityEmployee>
 {
+    private string _taxId;
     public Person Person { get; set; }
-    public string TaxId { get; set; }
+    public string TaxId
+    {
+        get
+        {
+            return _taxId;
+        }
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Invalid TaxId");
+            }
+            _taxId = value;
+        }
+    }
 
     public UniversityEmployee(Person person, string taxId)
     {
-        Person= person;
+        Person = person;
         TaxId = taxId;
     }
 
@@ -15,7 +30,8 @@ public abstract class UniversityEmployee
     {
         return $"I'm {Person} ID# {TaxId}";
     }
-    public override bool Equals(object obj)
+
+    public override bool Equals(object? obj)
     {
         if (obj == null || obj is not UniversityEmployee employee)
         {
@@ -29,5 +45,19 @@ public abstract class UniversityEmployee
     public override int GetHashCode()
     {
         return TaxId.GetHashCode() + Person.GetHashCode();
+    }
+
+    public int CompareTo(UniversityEmployee? other)
+    {
+        if (this.Person.FullNameLength() > other.Person.FullNameLength())
+        {
+            return -1;
+        }
+        else if (this.Person.FullNameLength() < other.Person.FullNameLength())
+        {
+            return 1;
+        }
+        else
+            return 0;
     }
 }

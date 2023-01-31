@@ -4,43 +4,68 @@ public class Program
 {
     static void Main(string[] args)
     {
+
         var employee1 = new Teacher(
-            new Person("Bob", "Dylan"),
-            "AB1111",
-            new Course("Math", "Algebra"));
+                new Person("Bob", "Dylan"),
+                "AB1111",
+                new Course("Math", "Algebra"));
         var employee2 = new Teacher(
-            new Person("Mike", "Spencer"),
-            "AB2222",
-            new Course("History", "Ancient"));
+               new Person("Mike", "Spencer"),
+               "AB2222",
+               new Course("History", "Ancient"));
         var employee3 = new Teacher(
-            new Person("Dan", "Spencer"),
-            "AB2223",
-            new Course("Math", "Algebra"));
+                new Person("Dan", "Spencer"),
+                "AB2223",
+                new Course("Math", "Algebra"));
         var employee4 = new Teacher(
-            new Person("Andry", "Anderson"),
-            "AB2224",
-            new Course("Math", "Geometry"));
+                new Person("Andry", "Anderson"),
+                "AB2224",
+                new Course("Math", "Geometry"));
         var employee5 = new TeacherWithDegree(
-            new Person("Sara", "White"),
-            "AB3333",
-            new Course("Biology", "Pathology"),
-            "Magistr", "Rector");
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "Magistr", "Rector");
         var employee6 = new SupportStaff(
-            new Person("Dory", "Minny"),
-            "GG1111",
-            "Guard");
+                new Person("Dory", "Minny"),
+                "GG1111",
+                "Guard");
         var employee7 = new SupportStaff(
-            new Person("Serge", "McNill"),
-            "GG2222",
-            "Janitor");
+                new Person("Serge", "McNill"),
+                "GG2222",
+                "Janitor");
         var employee8 = new SupportStaff(
-            new Person("Ben", "Brown"),
-            "GG3333",
-            "Gardener");
+                new Person("Ben", "Brown"),
+                "GG3333",
+                "Gardener");
         var employeeRector = new Rector(
-            new Person("Taras", "Bulba"),
-            "RR1111",
-            "BGUIR");
+                new Person("Taras", "Bulba"),
+                "RR1111",
+                "BGUIR");
+
+        try
+        {
+            var employee9 = new SupportStaff(
+                new Person("Ben", "Red"),
+                "",
+                "Gardener");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex);
+        }
+
+        try
+        {
+            var employee10 = new SupportStaff(
+                new Person("Benjamine", "Brownwhitered"),
+                "GG3333",
+                "Gardener");
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex);
+        }
 
         var employees = new List<UniversityEmployee>() {
             employee1,
@@ -80,6 +105,22 @@ public class Program
         Console.WriteLine(universityBguir.AddEmployee(new Teacher(new Person("Dylan", "Bob"), "AB2229",
                                                       new Course("Math", "Algebra"))));
         Console.WriteLine(universityBguir.AddEmployee(employee5));
+        Console.WriteLine();
+
+        foreach (var employee in employees)
+        {
+            Console.WriteLine(employee.GetOfficialDuties());
+        }
+
+        Console.WriteLine();
+
+        foreach (var employee in employees)
+        {
+            if (employee is Teacher)
+            {
+                Console.WriteLine(employee.GetOfficialDuties());
+            }
+        }
         Console.WriteLine();
 
         var filterEmployee1 = universityBguir.Employees
@@ -145,20 +186,35 @@ public class Program
         Console.WriteLine($"{filterEmployee4.k} {filterEmployee4.counter}");
 
         Console.WriteLine();
-        foreach (var employee in employees)
+
+        var sortFilter = universityBguir.Employees
+            .OrderByDescending(x => (x.Person.FirstName.Length + x.Person.LastName.Length))
+            .ToList();
+
+        foreach (var item in sortFilter)
         {
-            Console.WriteLine(employee.GetOfficialDuties());
+            Console.WriteLine(item.GetOfficialDuties());
         }
 
         Console.WriteLine();
 
-        foreach (var employee in employees)
-        {
-            if (employee is Teacher)
-            {
-                Console.WriteLine(employee.GetOfficialDuties());
-            }
+        universityBguir.Employees.Sort(new ComparerLengthOfName());
+
+        foreach (var item in employees)
+        { 
+            Console.WriteLine(item.GetOfficialDuties()); 
         }
+        Console.WriteLine();
+
+        universityBguir.Employees.Sort();
+
+        foreach (var item in employees)
+        {
+            Console.WriteLine(item.GetOfficialDuties());
+        }
+        Console.WriteLine();
+
+
     }
 
 }

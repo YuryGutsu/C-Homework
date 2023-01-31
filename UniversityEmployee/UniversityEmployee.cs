@@ -49,15 +49,6 @@ public abstract class UniversityEmployee : IComparable<UniversityEmployee>
 
     public int CompareTo(UniversityEmployee? other)
     {
-        if (this.Person.FullNameLength() > other.Person.FullNameLength())
-        {
-            return -1;
-        }
-        else if (this.Person.FullNameLength() < other.Person.FullNameLength())
-        {
-            return 1;
-        }
-        else
-            return 0;
+        return other.Person.FullNameLength() - this.Person.FullNameLength();
     }
 }

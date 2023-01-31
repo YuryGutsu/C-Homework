@@ -33,6 +33,11 @@ public class Building
 
     public override int GetHashCode()
     {
-        return Rooms.GetHashCode() + Address.GetHashCode();
+        int resultHashCode = Address.GetHashCode();
+        for (var i = 0; i < Rooms.Count; i++)
+        {
+            resultHashCode += Rooms[i].GetHashCode();
+        }
+        return resultHashCode;
     }
 }

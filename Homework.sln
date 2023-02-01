@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArraysNew", "ArraysNew\Arra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityEmployee", "UniversityEmployee\UniversityEmployee.csproj", "{9B44FD2D-4D5A-4200-AAE3-E69C4C480457}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUniversity", "TestUniversity\TestUniversity.csproj", "{F69AA35E-43CB-48FA-AEAA-9C49AEE5DEA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityUnitTest", "TestUniversity\UniversityUnitTest.csproj", "{F69AA35E-43CB-48FA-AEAA-9C49AEE5DEA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

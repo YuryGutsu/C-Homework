@@ -12,10 +12,11 @@ public class Room
         }
         set
         {
-            if (value > 0)
+            if (value < 0)
             {
-                _numberOfRoom = value;
+                throw new ArgumentException("incorrect value NumberOfRoom, it must be > 0");
             }
+            _numberOfRoom = value;
         }
     }
 

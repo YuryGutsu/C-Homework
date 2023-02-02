@@ -8,34 +8,39 @@ public class TeacherTest
     [TestMethod]
     public void TestTeacherOverrideGetOfficialDutiesPositive()
     {
-        Teacher teacher = new Teacher(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"));
-        string getOfficialDuties = "I'm Dddd Mnnn ID# GG1989 teacher of courseName courseDescribtion";
+        var teacher = new Teacher(
+                new Person("Dan", "Spencer"),
+                "AB2223",
+                new Course("Math", "Algebra"));
+        string getOfficialDuties = "I'm Dan Spencer ID# AB2223 teacher of Math Algebra";
         Assert.AreEqual(teacher.GetOfficialDuties(), getOfficialDuties);
     }
 
     [TestMethod]
     public void TestTeacherEqualsPositive()
     {
-        Teacher teacher = new Teacher(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"));
-        Teacher t = new Teacher(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"));
+        var teacher = new Teacher(
+                new Person("Dan", "Spencer"),
+                "AB2223",
+                new Course("Math", "Algebra"));
+        var t = new Teacher(
+                new Person("Dan", "Spencer"),
+                "AB2223",
+                new Course("Math", "Algebra"));
         Assert.AreEqual(teacher, t);
     }
 
     [TestMethod]
     public void TestTeacherEqualsNegative()
     {
-        Teacher teacher = new Teacher(new Person("Dddd", "Mnnn"),
-                         "GG1989",
-                         new Course("courseName", "courseDescribtion"));
-        Teacher t = new Teacher(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("222", "courseDescribtion"));
+        var teacher = new Teacher(
+                new Person("Dan", "Spencer"),
+                "AB2223",
+                new Course("Math", "Algebra"));
+        var t = new Teacher(
+                new Person("Dan", "Spencer"),
+                "AAAAAA",
+                new Course("Math", "Algebra"));
         Assert.AreNotEqual(teacher, t);
     }
 }

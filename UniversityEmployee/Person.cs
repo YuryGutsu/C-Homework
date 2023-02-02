@@ -1,5 +1,4 @@
-﻿
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class Person
 {
@@ -13,7 +12,7 @@ public class Person
 
         if(FullNameLength() > 15)
         {
-            throw new ArgumentException("FirstName and LastName length exceeding");
+            throw new ArgumentException("FirstName and LastName length must be <=15");
         }
     }
 

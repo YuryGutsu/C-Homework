@@ -15,10 +15,12 @@ public class Address
         }
         set
         { 
-            if (value > 0 && value < _max_builging_number)
+            if (value <=0 || value > _max_builging_number)
             {
-                _numberOfBuilding = value;
+                throw new ArgumentException
+                    ("incorrect value NumberOfBuilding, it must be > 0 and <= 1000");
             }
+            _numberOfBuilding = value;
         }
     }
 

@@ -9,39 +9,44 @@ public class TeacherWithDegreeTest
     [TestMethod]
     public void TestTeacherWithDegreeOverrideGetOfficialDutiesPositive()
     {
-        TeacherWithDegree teacher = new TeacherWithDegree(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"),
-                          "scienceDegree", "rank");
-        string getOfficialDuties = "I'm Dddd Mnnn ID# GG1989 teacher of courseName courseDescribtion scienceDegree rank";
+        var teacher = new TeacherWithDegree(
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "Magistr", "Rector");
+        string getOfficialDuties = "I'm Sara White ID# AB3333 teacher of Biology Pathology Magistr Rector";
         Assert.AreEqual(teacher.GetOfficialDuties(), getOfficialDuties);
     }
 
     [TestMethod]
     public void TestTeacherWithDegreeEqualsPositive()
     {
-        TeacherWithDegree teacher = new TeacherWithDegree(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"),
-                          "scienceDegree", "rank");
-        TeacherWithDegree t = new TeacherWithDegree(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"),
-                          "scienceDegree", "rank");
+        var teacher = new TeacherWithDegree(
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "Magistr", "Rector");
+        var t = new TeacherWithDegree(
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "Magistr", "Rector");
         Assert.AreEqual(teacher, t);
     }
 
     [TestMethod]
     public void TestTeacherWithDegreeEqualsNegative()
     {
-        TeacherWithDegree teacher = new TeacherWithDegree(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"),
-                          "scienceDegree", "rank");
-        TeacherWithDegree t = new TeacherWithDegree(new Person("Dddd", "Mnnn"),
-                          "GG1989",
-                          new Course("courseName", "courseDescribtion"),
-                          "scienceDegree", "RANK");
+        var teacher = new TeacherWithDegree(
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "Magistr", "Rector");
+        var t = new TeacherWithDegree(
+                new Person("Sara", "White"),
+                "AB3333",
+                new Course("Biology", "Pathology"),
+                "MAGISTR", "Rector");
         Assert.AreNotEqual(teacher, t);
     }
 }

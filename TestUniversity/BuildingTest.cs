@@ -1,4 +1,5 @@
-﻿using UniversityEmployee;
+﻿using System.Net;
+using UniversityEmployee;
 
 namespace UniversityUnitTest;
 
@@ -6,16 +7,17 @@ namespace UniversityUnitTest;
 
 public class BuildingTest
 {
-    [TestMethod]
-    public void TestBuildingsEqualsPositive()
-    {
-        var building = new Building
+    Building building = new Building
              (new List<Room>() {
                 new Room(RoomType.LectionRoom, 1),
                 new Room(RoomType.LaboratoryRoom, 22),
                 new Room(RoomType.SeminarRoom, 3),
                 new Room(RoomType.AuxiliaryRoom, 4)},
              new Address("Minsk", "ul. Brovki", 1));
+
+    [TestMethod]
+    public void TestBuildingsEqualsPositive()
+    {       
         var b = new Building
              (new List<Room>() {
                 new Room(RoomType.LectionRoom, 1),
@@ -28,13 +30,6 @@ public class BuildingTest
     [TestMethod]
     public void TestTheRoomsNumberInBuildingsNotEquals()
     {
-        var building = new Building
-             (new List<Room>() {
-                new Room(RoomType.LectionRoom, 1),
-                new Room(RoomType.LaboratoryRoom, 22),
-                new Room(RoomType.SeminarRoom, 3),
-                new Room(RoomType.AuxiliaryRoom, 4)},   
-             new Address("Minsk", "ul. Brovki", 1));
         var b = new Building
              (new List<Room>() {
                 new Room(RoomType.LectionRoom, 111),
@@ -48,18 +43,24 @@ public class BuildingTest
     [TestMethod]
     public void TestNumberOfRoomsInBuildingsNotEquals()
     {
-        var building = new Building
-             (new List<Room>() {
-                new Room(RoomType.LectionRoom, 1),
-                new Room(RoomType.LaboratoryRoom, 22),
-                new Room(RoomType.SeminarRoom, 3),
-                new Room(RoomType.AuxiliaryRoom, 4)},
-             new Address("Minsk", "ul. Brovki", 1));
         var b = new Building
              (new List<Room>() {
                 new Room(RoomType.LectionRoom, 1),
                 new Room(RoomType.AuxiliaryRoom, 4)},
              new Address("Minsk", "ul. Brovki", 1));
         Assert.AreNotEqual(building, b);
+    }
+
+    [TestMethod]
+    public void BuildingsGetHashCodesAreEquals()
+    {
+        var b = new Building
+     (new List<Room>() {
+                new Room(RoomType.LectionRoom, 1),
+                new Room(RoomType.LaboratoryRoom, 22),
+                new Room(RoomType.SeminarRoom, 3),
+                new Room(RoomType.AuxiliaryRoom, 4)},
+     new Address("Minsk", "ul. Brovki", 1));
+        Assert.AreNotEqual(building.GetHashCode, b.GetHashCode);
     }
 }

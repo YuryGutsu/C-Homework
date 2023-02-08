@@ -6,13 +6,14 @@ namespace UniversityUnitTest;
 
 public class RectorTest
 {
+    Rector rector = new Rector(
+        new Person("Taras", "Bulba"),
+        "RR1111",
+        "BGUIR");
+
     [TestMethod]
     public void TestRectorOverrideGetOfficialDutiesPositive()
     {
-        var rector = new Rector(
-                new Person("Taras", "Bulba"),
-                "RR1111",
-                "BGUIR");
         string getOfficialDuties = "I'm Taras Bulba ID# RR1111 rector of BGUIR";
         Assert.AreEqual(rector.GetOfficialDuties(), getOfficialDuties);
     }
@@ -20,10 +21,6 @@ public class RectorTest
     [TestMethod]
     public void TestRectorEqualsPositive()
     {
-        var rector = new Rector(
-               new Person("Taras", "Bulba"),
-               "RR1111",
-               "BGUIR");
         var rec = new Rector(
                new Person("Taras", "Bulba"),
                "RR1111",
@@ -34,10 +31,6 @@ public class RectorTest
     [TestMethod]
     public void TestRectorEqualsNegative()
     {
-        var rector = new Rector(
-               new Person("Taras", "Bulba"),
-               "RR1111",
-               "BGUIR");
         var rec = new Rector(
                new Person("Taras", "Bulba"),
                "RR1111",

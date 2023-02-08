@@ -41,10 +41,8 @@ public class UniversityTest
                 "RR1111",
                 "BGUIR");
         var un = new University(employees, buildings, employeeRector);
-        var emp = employees.Count;
-        var newun = un.AddEmployee(employeeAdded);
-        var empFinal = employees.Count;
-        Assert.AreEqual(empFinal, (emp + 1));
+        un.AddEmployee(employeeAdded);
+        Assert.IsTrue(employees.Contains(employeeAdded));
     }
 
     [TestMethod]
@@ -84,7 +82,7 @@ public class UniversityTest
                 "BGUIR");
         var un = new University(employees, buildings, employeeRector);
         var emp = employees.Count;
-        var newun = un.AddEmployee(employeeAdded);
+        un.AddEmployee(employeeAdded);
         var empFinal = employees.Count;
         Assert.AreEqual(empFinal, (emp));
     }

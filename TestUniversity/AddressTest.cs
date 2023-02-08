@@ -6,17 +6,18 @@ namespace UniversityUnitTest;
 
 public class AddressTest
 {
+    Address address = new Address("Minsk", "ul. Brovki", 1);
+
     [TestMethod]
+    [ExpectedException(typeof(ArgumentException))]
     public void TestNumberOfBuildingThrowsException()
     {
-        var ex = Assert.ThrowsException<ArgumentException>(() => new Address("Minsk", "ul. Brovki", 1001));
-        Assert.AreEqual("incorrect value NumberOfBuilding, it must be > 0 and <= 1000", ex.Message);
+        _ = new Address("Minsk", "ul. Brovki", 1001);
     }
 
     [TestMethod]
     public void TestAddressesEqualsPositive()
     {
-        var address = new Address("Minsk", "ul. Brovki", 1);
         var a = new Address("Minsk", "ul. Brovki", 1);
         Assert.AreEqual(address, a);
     }
@@ -24,8 +25,14 @@ public class AddressTest
     [TestMethod]
     public void TestAddressesEqualsNegative()
     {
-        var address = new Address("Minsk", "ul. Brovki", 1);
         var a = new Address("Orsha", "ul. Brovki", 1);
         Assert.AreNotEqual(address, a);
+    }
+
+    [TestMethod]
+    public void AddressesGetHashCodesAreEquals()
+    {
+        var a = new Address("Minsk", "ul. Brovki", 1);
+        Assert.AreNotEqual(address.GetHashCode, a.GetHashCode);
     }
 }

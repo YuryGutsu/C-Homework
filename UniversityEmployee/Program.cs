@@ -1,4 +1,6 @@
-﻿namespace UniversityEmployee;
+﻿using System.IO;
+
+namespace UniversityEmployee;
 
 public class Program
 {
@@ -213,7 +215,6 @@ public class Program
             Console.WriteLine(item.GetOfficialDuties());
         }
         Console.WriteLine();
-
 
     }
 

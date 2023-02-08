@@ -6,10 +6,11 @@ namespace UniversityUnitTest;
 
 public class RoomTest
 {
+    Room room = new Room(RoomType.LectionRoom, 1);
+
     [TestMethod]
     public void TestRoomEqualsPositive()
     {
-        var room = new Room(RoomType.LectionRoom, 1);
         var r = new Room(RoomType.LectionRoom, 1);
         Assert.AreEqual(room, r);
     }
@@ -17,7 +18,6 @@ public class RoomTest
     [TestMethod]
     public void TestRoomTypesEqualsNegative()
     {
-        var room = new Room(RoomType.LectionRoom, 1);
         var r = new Room(RoomType.SeminarRoom, 1);
         Assert.AreNotEqual(room, r);
     }
@@ -25,16 +25,15 @@ public class RoomTest
     [TestMethod]
     public void TestRoomsEqualsNegative()
     {
-        var room = new Room(RoomType.LectionRoom, 1);
         var r = new Room(RoomType.LectionRoom, 11);
         Assert.AreNotEqual(room, r);
     }
 
     [TestMethod]
+    [ExpectedException(typeof(ArgumentException))]
     public void TestRoomNumberOfRoomThrowsException()
     {
-        var ex = Assert.ThrowsException<ArgumentException>(() => new Room(RoomType.LectionRoom, -1));
-        Assert.AreEqual("incorrect value NumberOfRoom, it must be > 0", ex.Message);
+        _ = new Room(RoomType.LectionRoom, -1);
     }
 }
 

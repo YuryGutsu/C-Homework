@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UniversityEmployee;
+﻿namespace UniversityEmployee;
 
 public class Building
 {
@@ -15,19 +13,18 @@ public class Building
 
     public override bool Equals(object? obj)
     {
-        if (obj == null || obj is not Building building)
+        if (obj == null || obj is not Building building || Rooms.Count != building.Rooms.Count)
         {
             return false;
         }
 
         bool result = building.Address.Equals(Address);
-        if (Rooms.Count == building.Rooms.Count)
+        
+        for (var i = 0; i < Rooms.Count; i++)
         {
-            for (var i = 0; i < Rooms.Count; i++)
-            {
-                result &= building.Rooms[i].Equals(Rooms[i]);
-            }
+            result &= building.Rooms[i].Equals(Rooms[i]);
         }
+        
         return result;
     }
 

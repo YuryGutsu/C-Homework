@@ -17,7 +17,7 @@ public class BuildingTest
 
     [TestMethod]
     public void TestBuildingsEqualsPositive()
-    {       
+    {
         var b = new Building
              (new List<Room>() {
                 new Room(RoomType.LectionRoom, 1),
@@ -27,6 +27,20 @@ public class BuildingTest
              new Address("Minsk", "ul. Brovki", 1));
         Assert.AreEqual(building, b);
     }
+    
+    [TestMethod]
+    public void BuildingsGetHashCodesAreEquals()
+    {
+        var b = new Building
+     (new List<Room>() {
+                new Room(RoomType.LectionRoom, 1),
+                new Room(RoomType.LaboratoryRoom, 22),
+                new Room(RoomType.SeminarRoom, 3),
+                new Room(RoomType.AuxiliaryRoom, 4)},
+     new Address("Minsk", "ul. Brovki", 1));
+        Assert.AreEqual(building.GetHashCode(), b.GetHashCode());
+    }
+
     [TestMethod]
     public void TestTheRoomsNumberInBuildingsNotEquals()
     {
@@ -49,18 +63,5 @@ public class BuildingTest
                 new Room(RoomType.AuxiliaryRoom, 4)},
              new Address("Minsk", "ul. Brovki", 1));
         Assert.AreNotEqual(building, b);
-    }
-
-    [TestMethod]
-    public void BuildingsGetHashCodesAreEquals()
-    {
-        var b = new Building
-     (new List<Room>() {
-                new Room(RoomType.LectionRoom, 1),
-                new Room(RoomType.LaboratoryRoom, 22),
-                new Room(RoomType.SeminarRoom, 3),
-                new Room(RoomType.AuxiliaryRoom, 4)},
-     new Address("Minsk", "ul. Brovki", 1));
-        Assert.AreNotEqual(building.GetHashCode, b.GetHashCode);
     }
 }

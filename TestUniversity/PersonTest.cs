@@ -6,13 +6,12 @@ namespace UniversityUnitTest;
 
 public class PersonTest
 {
-    Person person;
+    Person person = new Person("Bob", "Dylan");
 
     [TestMethod]
     public void TestPersonsEqualsPositive()
     {
-        person = new Person("Bob", "Dylan");
-        var p = new Person("Bob", "Dylan");
+        var p = new Person(null, "Dylan");
         Assert.AreEqual(person, p);
     }
 

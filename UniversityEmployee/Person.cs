@@ -2,7 +2,7 @@
 
 public class Person
 {
-    /*private string _firstName;
+    private string _firstName;
     private string _lastName;
     public string FirstName
     {
@@ -12,11 +12,7 @@ public class Person
         }
         set
         {
-            
-            if (value.Length + _lastName.Length > 15)
-            {
-                throw new ArgumentException("FirstName and LastName length must be <=15");
-            }
+            CheckFullNameLength(value, _lastName);
             _firstName = value;
         }
     }
@@ -29,33 +25,25 @@ public class Person
         }
         set
         {
-            if (value.Length + _firstName.Length > 15)
-            {
-                throw new ArgumentException("FirstName and LastName length must be <=15");
-            }
+            CheckFullNameLength(value, _firstName);
             _lastName = value;
         }
-    }*/
-    public string FirstName { get; set; }
-    public string LastName { get; set; } 
+    }
 
     public Person(string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
-        if (FullNameLength() > 15)
+    }
+
+    public void CheckFullNameLength(string value, string name)
+    {
+        ArgumentNullException.ThrowIfNull(value);
+        if (value.Length + (name?.Length ?? 0) > 15)
         {
             throw new ArgumentException("FirstName and LastName length must be <=15");
         }
     }
-
-    /*private static void CheckFullNameLength(string firstName, string lastName)
-    {
-        if (firstName.Length + lastName.Length > 15)
-        {
-            throw new ArgumentException("FirstName and LastName length must be <=15");
-        }
-    }*/
 
     public int FullNameLength()
     {

@@ -23,16 +23,16 @@ public class AddressTest
     }
 
     [TestMethod]
+    public void AddressesGetHashCodesAreEquals()
+    {
+        var a = new Address("Minsk", "ul. Brovki", 1);
+        Assert.AreEqual(address.GetHashCode(), a.GetHashCode());
+    }
+
+    [TestMethod]
     public void TestAddressesEqualsNegative()
     {
         var a = new Address("Orsha", "ul. Brovki", 1);
         Assert.AreNotEqual(address, a);
-    }
-
-    [TestMethod]
-    public void AddressesGetHashCodesAreEquals()
-    {
-        var a = new Address("Minsk", "ul. Brovki", 1);
-        Assert.AreNotEqual(address.GetHashCode, a.GetHashCode);
     }
 }
